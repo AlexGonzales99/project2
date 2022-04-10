@@ -35,14 +35,21 @@ def parse():  # put application's code here
         # Extracting text from page
         # And splitting it into chunks of lines
         text = pageObj.extractText().split('\n')
-        print(pageObj.extractText())
+        for i in range(text.count(" ")):
+            # Printing the line
+            # Lines are seprated using "\n"
+            text.remove(" ")
+            # For Seprating the Pages
+
+        print(text)
+
         # Finally the lines are stored into list
         # For iterating over list a loop is used
-        user['name'] = text[10]
-        user['email'] = text[47]
-        user['education'] = text[25]
-        #user['major']
-        #user['minor']
+        user['name'] = text[2] + text[3] + text[4]
+        user['email'] = text[10]
+        #user['education'] = text[25]
+        user['major'] = text[27].removeprefix("Major:  ")
+        user['expGrad'] = text[29].removeprefix("Expected Graduation Date:  ")
         #user['work history']
 
         '''for i in range(len(text)):
